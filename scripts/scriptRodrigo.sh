@@ -15,7 +15,7 @@ echo $WD
 cd $WD
 mkdir -p res/genome
 cd $_
-wget -0 ecoli.fasta.gz ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/005/845/GCF_000005845.2_ASM584v2/GCF_000005845.2_ASM584v2_genomic.fna.gz
+wget -O ecoli.fasta.gz ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/005/845/GCF_000005845.2_ASM584v2/GCF_000005845.2_ASM584v2_genomic.fna.gz
 gunzip -k ecoli.fasta.gz
 
 #### Creamos el índice del genoma
