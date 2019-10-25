@@ -12,14 +12,24 @@ echo $WD
 
 #### Descargamos el genoma de E.coli
 
-cd $WD/data
-wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/005/845/GCF_000005845.2_ASM584v2/GCF_000005845.2_ASM584v2_genomic.fna.gz
+cd $WD
+mkdir -p res/genome
+cd $_
+wget -0 ecoli.fasta.gz ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/005/845/GCF_000005845.2_ASM584v2/GCF_000005845.2_ASM584v2_genomic.fna.gz
+gunzip -k ecoli.fasta.gz
+
+#### Creamos el índice del genoma
+
+echo "Running STAR index..."
+    mkdir -p res/genome/star_index
+    STAR --runThreadN 4 --runMode genomeGenerate --genomeDir res/genome/star_index/ --genomeFastaFiles res/genome/ecoli.fasta --genomeSAindexNbases 9
+    echo
 
 #### Análisis de datos
 
-for sid in $(<list of samples>)
+for sid in $(ls data/*.fastq.gz | cut -d "_" -f1 | sed 's:data/::' | sort | uniq)
 do
-   # place here the script with commands to analyse each sample
+
 #### Control de calidad utilizando el software FastQC
 
 if [ "$#" -eq 1 ]
@@ -34,11 +44,6 @@ then
     mkdir -p log/cutadapt
     mkdir -p out/cutadapt
     cutadapt -m 20 -a AGATCGGAAGAGCACACGTCTGAACTCCAGTCA -A AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT -o out/cutadapt/${sampleid}_1.trimmed.fastq.gz -p out/cutadapt/${sampleid}_2.trimmed.fastq.gz data/${sampleid}_1.fastq.gz data/${sampleid}_2.fastq.gz > log/cutadapt/${sampleid}.log
-    echo
-#### Creando el índice con STAR
-    echo "Running STAR index..."
-    mkdir -p res/genome/star_index
-    STAR --runThreadN 4 --runMode genomeGenerate --genomeDir res/genome/star_index/ --genomeFastaFiles res/genome/ecoli.fasta --genomeSAindexNbases 9
     echo
 #### Alineamiento con STAR
     echo "Running STAR alignment..."
