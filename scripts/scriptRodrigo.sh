@@ -25,7 +25,7 @@ echo "Running STAR index..."
     STAR --runThreadN 4 --runMode genomeGenerate --genomeDir res/genome/star_index/ --genomeFastaFiles res/genome/ecoli.fasta --genomeSAindexNbases 9
     echo
 
-#### Análisis de datos
+#### Loop de Análisis de datos
 
 for sid in $(ls data/*.fastq.gz | cut -d "_" -f1 | sed 's:data/::' | sort | uniq)
 do
@@ -58,3 +58,12 @@ fi
    # this command should receive the sample ID as the only argument
 done
 # place here any commands that need to run after analysing the samples
+
+#### Report del pipeline con multiqc
+
+cd $WD
+multiqc -o out/multiqc $WD
+
+echo "Fin, reza a Linus"
+
+
