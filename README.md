@@ -1,3 +1,4 @@
+
 # RNA-seq analysis of E. coli with over-expressed DNA-damage handling proteins
 
 ## Introduction
@@ -48,11 +49,17 @@ You can assign the issue by clicking on the "Assignees" title on the top right.
 
 #### Cloning your fork and starting work
 
-You should now **clone** this new repository to obtain a local copy in your machine.
+#You should now **clone** this new repository to obtain a local copy in your machine.
 
-You can then start working on your local copy of the repository.
+#You can then start working on your local copy of the repository.
 
-> Remember to commit often. Don't go crazy about it, but do generate a history of your work.
+#> Remember to commit often. Don't go crazy about it, but do generate a history of your work.
+
+git add README.md
+
+git commit -m "Línea cambiada"
+
+git push origin master
 
 ### Organisation of your files
 
