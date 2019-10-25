@@ -1,7 +1,7 @@
 # RNA-seq analysis of E. coli with over-expressed DNA-damage handling proteins
 
 ## Introduction
-
+## Cambio para ver si se sube a github
 In this project, you will be analysing RNA-seq data from Escherichia coli bacteria.
 These bacteria have had some DNA-damage handling proteins over-expressed, and you
 would like to perform a transcriptome-wide study of its effects.
@@ -29,7 +29,7 @@ You can find the fork button on the top right corner of the repository webpage o
 
 Once you fork the project, you will have a copy of the repository on a new URL:
 
-`https://github.com/<your_username>/testsim`
+`https://github.com/Rodrigo-MP/testsim.git`
 
 #### Adding your instructor as a collaborator
 
