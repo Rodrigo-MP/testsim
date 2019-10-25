@@ -57,6 +57,9 @@ fi
 
    # this command should receive the sample ID as the only argument
 done
+
+echo
+
 # place here any commands that need to run after analysing the samples
 
 #### Report del pipeline con multiqc
