@@ -44,3 +44,11 @@ cd $WD
 multiqc -o out/multiqc $WD
 
 echo "Fin, reza a Linus"
+
+#### Conda environment information
+cd $WD
+mkdir /envs
+conda env export > /envs/rna-seq.yaml
+#### lista de muestras
+cd $WD
+ls data/*.fastq.gz | cut -d "_" -f1 | sed 's:data/::' | sort | uniq
