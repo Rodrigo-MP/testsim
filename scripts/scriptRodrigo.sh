@@ -1,5 +1,5 @@
 #### Preparando el espacio de trabajo
-
+#### Hemos vinculado el github a atom
 mkdir -p ~/testsim
 cd ~/testsim
 pwd
@@ -68,5 +68,3 @@ cd $WD
 multiqc -o out/multiqc $WD
 
 echo "Fin, reza a Linus"
-
-
